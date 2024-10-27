@@ -13,9 +13,10 @@ def main():
         Cell(400, 400, 500, 500, win),
         Cell(500, 500, 598, 598, win)
     ]
-    for cell in cells:
-        print(cell.walls)
-        cell.draw()
+    for i in range(len(cells)):
+        cells[i].draw()
+        if i < len(cells) - 1:
+            cells[i].draw_move(cells[i + 1])
     win.wait_for_close()
 
 if __name__ == "__main__":

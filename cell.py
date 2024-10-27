@@ -44,3 +44,9 @@ class Cell:
                         point2.y = self.__y2
                 line = Line(point1, point2)
                 self.__window.draw_line(line, "black")
+
+    def draw_move(self, to_cell, undo=False):
+        here = Point((self.__x1 + self.__x2) / 2, (self.__y1 + self.__y2) / 2)
+        there = Point((to_cell.__x1 + to_cell.__x2) / 2, (to_cell.__y1 + to_cell.__y2) / 2)
+        line = Line(here, there)
+        self.__window.draw_line(line, "gray" if undo else "red")
