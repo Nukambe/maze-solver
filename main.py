@@ -19,6 +19,9 @@ def main():
     #     if i < len(cells) - 1:
     #         cells[i].draw_move(cells[i + 1])
     maze = Maze(10, 10, 5, 5, 50, 50, win)
+    # maze._break_entrance_and_exit()
+    # maze._break_walls()
+    maze.solve()
     win.wait_for_close()
 
 if __name__ == "__main__":
