@@ -54,7 +54,7 @@ class Maze:
             cell.draw()
             self._animate()
 
-    def _animate(self, seconds=0.05):
+    def _animate(self, seconds=0.01):
         self._window.redraw()
         time.sleep(seconds)
 
@@ -107,7 +107,7 @@ class Maze:
         return self._solve_r(0, 0)
 
     def _solve_r(self, col: int, row: int):
-        self._animate(0.1)
+        self._animate(0.05)
         cell = self._cells[col][row]
         cell.visited = True
         if col == self.num_cols - 1 and row == self.num_rows - 1:
