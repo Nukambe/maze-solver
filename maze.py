@@ -54,9 +54,9 @@ class Maze:
             cell.draw()
             self._animate()
 
-    def _animate(self):
+    def _animate(self, seconds=0.05):
         self._window.redraw()
-        time.sleep(0.05)
+        time.sleep(seconds)
 
     def _break_entrance_and_exit(self):
         self._cells[0][0].walls["top"] = False
@@ -107,7 +107,7 @@ class Maze:
         return self._solve_r(0, 0)
 
     def _solve_r(self, col: int, row: int):
-        self._animate()
+        self._animate(0.1)
         cell = self._cells[col][row]
         cell.visited = True
         if col == self.num_cols - 1 and row == self.num_rows - 1:
@@ -125,6 +125,7 @@ class Maze:
                     if solved:
                         return True
                     cell.draw_move(neighbor, undo=True)
+                    self._animate(0.1)
         return False
 
     def _get_visit_directions(self, col: int, row: int):
